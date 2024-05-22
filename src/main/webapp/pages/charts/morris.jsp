@@ -7,7 +7,7 @@
   <%@include file="/WEB-INF/views/common/include/meta.jsp"%>
   <title>AdminLTE 2 | Morris.js Charts</title>
   <!-- Morris charts -->
-  <link rel="stylesheet" href="/resources/plugins/morris/morris.css">
+  <link rel="stylesheet" href="resources/plugins/morris/morris.css">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -135,7 +135,7 @@
 	
 <!-- Morris.js charts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="/resources/plugins/morris/morris.min.js"></script>
+<script src="resources/plugins/morris/morris.min.js"></script>
 <!-- page script -->
 <script>
   $(function () {

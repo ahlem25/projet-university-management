@@ -6,19 +6,19 @@
   <meta charset="utf-8">
   <%@include file="/WEB-INF/views/common/include/meta.jsp"%>
   <!-- iCheck -->
-  <link rel="stylesheet" href="/resources/plugins/iCheck/square/blue.css">
+  <link rel="stylesheet" href="resources/plugins/iCheck/square/blue.css">
   <title>AdminLTE 2 | Log in</title>
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>Admin</b>LTE</a>
+    <a href=index2.html"><b>Admin</b>LTE</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
 
-    <form action="../../index2.html" method="post">
+    <form action="index2.html" method="post">
       <div class="form-group has-feedback">
         <input type="email" class="form-control" placeholder="Email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -63,7 +63,7 @@
 	<%@include file="/WEB-INF/views/common/include/script.jsp"%>
 
 <!-- iCheck -->
-<script src="/resources/plugins/iCheck/icheck.min.js"></script>
+<script src="resources/plugins/iCheck/icheck.min.js"></script>
 <script>
   $(function () {
     $('input').iCheck({

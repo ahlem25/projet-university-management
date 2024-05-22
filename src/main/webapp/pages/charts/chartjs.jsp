@@ -132,7 +132,7 @@
 	<%@include file="/WEB-INF/views/common/include/script.jsp"%>
 
 <!-- ChartJS 1.0.1 -->
-<script src="/resources/plugins/chartjs/Chart.min.js"></script>
+<script src="resources/plugins/chartjs/Chart.min.js"></script>
 
 <!-- page script -->
 <script>

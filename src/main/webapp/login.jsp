@@ -10,13 +10,14 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>Gestion  </b>des étudiants</a>
+   <a href="index2.html"><b>Gestion </b>des étudiants</a>
+
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg"></p>
 
-    <form action="../../index2.html" method="post">
+    <form action="index2.html" method="post">
       <div class="form-group has-feedback">
         <input type="email" class="form-control" placeholder="Email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -43,11 +44,11 @@
 <!-- /.login-box -->
 
 <!-- jQuery 2.2.3 -->
-<script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="resources/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
-<script src="../../bootstrap/js/bootstrap.min.js"></script>
+<script src="resources/bootstrap/js/bootstrap.min.js"></script>
 <!-- iCheck -->
-<script src="../../plugins/iCheck/icheck.min.js"></script>
+<script src="resources/plugins/iCheck/icheck.min.js"></script>
 <script>
   $(function () {
     $('input').iCheck({

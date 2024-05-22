@@ -401,9 +401,9 @@
 	<%@include file="/WEB-INF/views/common/include/script.jsp"%>
 	
 <!-- jQuery Knob -->
-<script src="/resources/plugins/knob/jquery.knob.js"></script>
+<script src="resources/plugins/knob/jquery.knob.js"></script>
 <!-- Sparkline -->
-<script src="/resources/plugins/sparkline/jquery.sparkline.min.js"></script>
+<script src="resources/plugins/sparkline/jquery.sparkline.min.js"></script>
 <!-- page script -->
 <script>
   $(function () {

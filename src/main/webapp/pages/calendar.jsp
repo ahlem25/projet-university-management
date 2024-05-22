@@ -7,8 +7,8 @@
   <%@include file="/WEB-INF/views/common/include/meta.jsp"%>
   <title>AdminLTE 2 | Calendar</title>
   <!-- fullCalendar 2.2.5-->
-  <link rel="stylesheet" href="/resources/plugins/fullcalendar/fullcalendar.min.css">
-  <link rel="stylesheet" href="/resources/plugins/fullcalendar/fullcalendar.print.css" media="print">
+  <link rel="stylesheet" href="resources/plugins/fullcalendar/fullcalendar.min.css">
+  <link rel="stylesheet" href="resources/plugins/fullcalendar/fullcalendar.print.css" media="print">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -124,7 +124,7 @@
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>	
 <!-- fullCalendar 2.2.5 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-<script src="/resources/plugins/fullcalendar/fullcalendar.min.js"></script>
+<script src="resources/plugins/fullcalendar/fullcalendar.min.js"></script>
 <!-- Page specific script -->
 <script>
   $(function () {

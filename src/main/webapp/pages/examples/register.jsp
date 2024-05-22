@@ -7,7 +7,7 @@
   <%@include file="/WEB-INF/views/common/include/meta.jsp"%>
   
   <!-- iCheck -->
-  <link rel="stylesheet" href="/resources/plugins/iCheck/square/blue.css">
+  <link rel="stylesheet" href="resources/plugins/iCheck/square/blue.css">
   
   <title>AdminLTE 2 | Registration Page</title>
   
@@ -71,7 +71,7 @@
 	<%@include file="/WEB-INF/views/common/include/script.jsp"%>
 
 <!-- iCheck -->
-<script src="/resources/plugins/iCheck/icheck.min.js"></script>
+<script src="resources/plugins/iCheck/icheck.min.js"></script>
 <script>
   $(function () {
     $('input').iCheck({
