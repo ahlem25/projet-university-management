@@ -42,7 +42,7 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Mon Profil</a>
+                  <a href="<%=request.getContextPath()%>/profile.jsp" class="btn btn-default btn-flat">Mon Profil</a>
                 </div>
                 <div class="pull-right">
                   <a href="#" class="btn btn-default btn-flat">Déconnexion</a>
