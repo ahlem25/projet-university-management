@@ -68,11 +68,6 @@
                     <div class="box-header">
                         <h3 class="box-title">Liste des utilisateurs</h3>
                     </div>
-                    <div class="alert alert-danger" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span></button>
-                        <strong>Patient ! numéro <%= request.getAttribute("id_p") %></strong> est supprimer.
-                    </div>
                     <!-- /.box-header -->
                     <div class="box-body">
                         <a class="btn btn-primary pull-right" href="AddUser.jsp">
@@ -89,7 +84,7 @@
                             </thead>
                             <tbody>
                             <%
-                                if(users.isEmpty())
+                                if(users != null)
                                 {
                                     for(User user: users)
                                     {
@@ -99,7 +94,13 @@
                                 <td><%= user.getLastName() %></td>
                                 <td><%= user.getEmail() %></td>
                                 <td>
-
+                                    <form action="/projet-university-management/Users" method="POST">
+                                        <a type="button" href="/projet-university-management/EditUser?id=<%= user.getId() %>" class="btn btn-success">
+                                            <i class="fas fa-user-edit"></i>
+                                        </a>
+                                        <input type="hidden" name="id" value="<%= user.getId() %>" />
+                                        <button class="btn btn-danger" type="submit"><i class="fas fa-user-times"></i></button>
+                                    </form>
                                 </td>
                             </tr>
                             <%

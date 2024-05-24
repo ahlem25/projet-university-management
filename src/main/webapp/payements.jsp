@@ -43,6 +43,24 @@
 <!-- /.wrapper -->
 
 	<%@include file="/WEB-INF/views/common/include/script.jsp"%>
-
+    <!-- DataTables -->
+    <script src="resources/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="resources/plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <!-- page script -->
+    <script>
+        $(function () {
+            $('#datatable').DataTable({
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/1.11.3/i18n/fr_fr.json",
+                },
+                "paging": true,
+                "lengthChange": false,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false
+            });
+        });
+    </script>
 </body>
 </html>
