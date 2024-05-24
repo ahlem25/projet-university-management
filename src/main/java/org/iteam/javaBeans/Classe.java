@@ -40,11 +40,11 @@ public class Classe {
         this.comment = comment;
     }
 
-    public String getOf_year() {
+    public String getOfYear() {
         return of_year;
     }
 
-    public void setOf_year(String of_year) {
-        this.of_year = of_year;
+    public void setOfYear(String ofYear) {
+        this.of_year = ofYear;
     }
 }

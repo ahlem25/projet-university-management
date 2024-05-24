@@ -1,3 +1,5 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="org.iteam.javaBeans.Subscription" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -29,9 +31,93 @@
 
     <!-- Main content -->
     <section class="content">
-
       <!-- Your Page Content Here -->
+        <div class="row">
+            <div class="col-xs-12">
+                <%
+                    ArrayList<Subscription> subscriptions = (ArrayList<Subscription>) request.getAttribute("subscriptions");
+                    if(request.getAttribute("action")!=null)
+                    {%>
+                <div class="alert alert-success" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4>Félicitation!</h4>
+                    <%
+                        if(request.getAttribute("action").equals("add"))
+                        {%>
+                    <p>L'insciption a été ajouté avec succès.</p>
+                    <%
+                        }
+                        if(request.getAttribute("action").equals("edit"))
+                        {%>
+                    <p>L'inscription a été ajouté avec succès.</p>
+                    <%
+                        }
+                        if(request.getAttribute("action").equals("supprimer"))
+                        { %>
+                    <p>L'inscription a été ajouté avec succès.</p>
+                    <%
+                        }
+                    %>
+                </div>
+                <%
+                    }
+                %>
 
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Liste des inscriptions</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <a class="btn btn-primary pull-right" href="AddSubscription.jsp">
+                            <i class="fa fa-plus"></i> Ajouter
+                        </a>
+                        <table id="datatable" class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Année d'inscription</th>
+                                <th>Etudiant</th>
+                                <th>Classe</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <%
+                                if(subscriptions != null)
+                                {
+                                    for(Subscription subscription: subscriptions)
+                                    {
+                            %>
+                            <tr>
+                                <td><%= subscription.getId() %></td>
+                                <td><%= subscription.getYear() %></td>
+                                <td><%= subscription.getStudentId() %></td>
+                                <td><%= subscription.getClassId() %></td>
+                                <td>
+                                    <form action="<%=request.getContextPath()%>/Subscriptions" method="POST">
+                                        <a type="button" href="<%=request.getContextPath()%>/EditSubscription?id=<%= subscription.getId() %>" class="btn btn-success">
+                                            <i class="fas fa-user-edit"></i>
+                                        </a>
+                                        <input type="hidden" name="id" value="<%= subscription.getId() %>" />
+                                        <button class="btn btn-danger" type="submit"><i class="fas fa-user-times"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <%
+                                    }
+                                }
+                            %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
     </section>
     <!-- /.content -->
   </div>

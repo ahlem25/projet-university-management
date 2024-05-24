@@ -17,7 +17,7 @@
   <div class="login-box-body">
     <p class="login-box-msg"></p>
 
-    <form method="POST" action="/projet-university-management/login">
+    <form method="POST" action="<%=request.getContextPath()%>/login">
     <div class="text-danger text-center">
         <p> ${message}</p>
     </div>

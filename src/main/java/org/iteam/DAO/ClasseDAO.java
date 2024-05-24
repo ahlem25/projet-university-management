@@ -54,7 +54,7 @@ public class ClasseDAO implements ClasseManagmentService {
             student.setId(result.getInt("id"));
             student.setName(result.getString("name"));
             student.setComment(result.getString("comment"));
-            student.setOf_year(result.getString("of_year"));
+            student.setOfYear(result.getString("of_year"));
             reponse.add(student);
         }
         preStat.close();
@@ -68,7 +68,7 @@ public class ClasseDAO implements ClasseManagmentService {
         PreparedStatement preStat = connection.prepareStatement(query);
         preStat.setString(1, classe.getName());
         preStat.setString(2, classe.getComment());
-        preStat.setString(3, classe.getOf_year());
+        preStat.setString(3, classe.getOfYear());
         int result = preStat.executeUpdate();
         preStat.close();
         return result != 0;
@@ -92,7 +92,7 @@ public class ClasseDAO implements ClasseManagmentService {
         PreparedStatement preStat = connection.prepareStatement(query);
         preStat.setString(1, classe.getName());
         preStat.setString(2, classe.getComment());
-        preStat.setString(3, classe.getOf_year());
+        preStat.setString(3, classe.getOfYear());
         preStat.setInt(4, id);
         int result = preStat.executeUpdate();
         preStat.close();

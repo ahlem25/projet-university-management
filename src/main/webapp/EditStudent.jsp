@@ -29,9 +29,31 @@
 
         <!-- Main content -->
         <section class="content">
-
             <!-- Your Page Content Here -->
-
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">Modifier un étudiant</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <form action="<%=request.getContextPath()%>/AddStudent" method="POST">
+                                <%@include file="/WEB-INF/views/common/forms/studentForm.jsp"%>
+                                <div class="form-group col-sm-12 float-left">
+                                    <a class="btn btn-secondary ml-2" href="<%=request.getContextPath()%>/students.jsp">
+                                        <i class="fa fa-angle-left"></i> Retour
+                                    </a>
+                                    <button class="btn btn-success ml-2" type="submit">
+                                        <i class="fa fa-save"></i> Modifier
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                </div>
+            </div>
         </section>
         <!-- /.content -->
     </div>

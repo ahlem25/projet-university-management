@@ -76,6 +76,7 @@
                         <table id="datatable" class="table table-bordered table-hover">
                             <thead>
                             <tr>
+                                <th>Id</th>
                                 <th>Nom</th>
                                 <th>Prénom</th>
                                 <th>E-mail</th>
@@ -90,12 +91,13 @@
                                     {
                             %>
                             <tr>
+                                <td><%= user.getId() %></td>
                                 <td><%= user.getFirstName() %></td>
                                 <td><%= user.getLastName() %></td>
                                 <td><%= user.getEmail() %></td>
                                 <td>
-                                    <form action="/projet-university-management/Users" method="POST">
-                                        <a type="button" href="/projet-university-management/EditUser?id=<%= user.getId() %>" class="btn btn-success">
+                                    <form action="<%=request.getContextPath()%>/Users" method="POST">
+                                        <a type="button" href="<%=request.getContextPath()%>/EditUser?id=<%= user.getId() %>" class="btn btn-success">
                                             <i class="fas fa-user-edit"></i>
                                         </a>
                                         <input type="hidden" name="id" value="<%= user.getId() %>" />

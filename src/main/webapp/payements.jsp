@@ -1,3 +1,5 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="org.iteam.javaBeans.Payement" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -29,9 +31,91 @@
 
     <!-- Main content -->
     <section class="content">
+        <!-- Your Page Content Here -->
+        <div class="row">
+            <div class="col-xs-12">
+                <%
+                    ArrayList<Payement> payements = (ArrayList<Payement>) request.getAttribute("payements");
+                    if(request.getAttribute("action")!=null)
+                    {%>
+                <div class="alert alert-success" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4>Félicitation!</h4>
+                    <%
+                        if(request.getAttribute("action").equals("add"))
+                        {%>
+                    <p>Le payement a été ajouté avec succès.</p>
+                    <%
+                        }
+                        if(request.getAttribute("action").equals("edit"))
+                        {%>
+                    <p>Le payement a été ajouté avec succès.</p>
+                    <%
+                        }
+                        if(request.getAttribute("action").equals("supprimer"))
+                        { %>
+                    <p>Le payement a été ajouté avec succès.</p>
+                    <%
+                        }
+                    %>
+                </div>
+                <%
+                    }
+                %>
 
-      <!-- Your Page Content Here -->
-
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Liste des payements</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <a class="btn btn-primary pull-right" href="AddPayement.jsp">
+                            <i class="fa fa-plus"></i> Ajouter
+                        </a>
+                        <table id="datatable" class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Montant</th>
+                                <th>Commentaire</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <%
+                                if(payements != null)
+                                {
+                                    for(Payement payement: payements)
+                                    {
+                            %>
+                            <tr>
+                                <td><%= payement.getId() %></td>
+                                <td><%= payement.getAmount() %></td>
+                                <td><%= payement.getComment() %></td>
+                                <td>
+                                    <form action="<%=request.getContextPath()%>/Payements" method="POST">
+                                        <a type="button" href="<%=request.getContextPath()%>/EditPayement?id=<%= payement.getId() %>" class="btn btn-success">
+                                            <i class="fas fa-user-edit"></i>
+                                        </a>
+                                        <input type="hidden" name="id" value="<%= payement.getId() %>" />
+                                        <button class="btn btn-danger" type="submit"><i class="fas fa-user-times"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <%
+                                    }
+                                }
+                            %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
     </section>
     <!-- /.content -->
   </div>

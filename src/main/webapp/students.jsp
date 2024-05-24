@@ -1,5 +1,7 @@
+<%@ page import="org.iteam.javaBeans.Student" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,9 +31,93 @@
 
     <!-- Main content -->
     <section class="content">
-
       <!-- Your Page Content Here -->
+        <div class="row">
+            <div class="col-xs-12">
+                <%
+                    ArrayList<Student> students = (ArrayList<Student>) request.getAttribute("students");
+                    if(request.getAttribute("action")!=null)
+                    {%>
+                    <div class="alert alert-success" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span></button>
+                        <h4>Félicitation!</h4>
+                    <%
+                        if(request.getAttribute("action").equals("add"))
+                        {%>
+                    <p>L'étudiant a été ajouté avec succès.</p>
+                    <%
+                        }
+                        if(request.getAttribute("action").equals("edit"))
+                        {%>
+                    <p>L'étudiant a été ajouté avec succès.</p>
+                    <%
+                        }
+                        if(request.getAttribute("action").equals("supprimer"))
+                        { %>
+                    <p>L'étudiant a été ajouté avec succès.</p>
+                    <%
+                        }
+                    %>
+                </div>
+                <%
+                    }
+                %>
 
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Liste des étudiants</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <a class="btn btn-primary pull-right" href="AddStudent.jsp">
+                            <i class="fa fa-plus"></i> Ajouter
+                        </a>
+                        <table id="datatable" class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nom</th>
+                                <th>Prénom</th>
+                                <th>E-mail</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <%
+                                if(students != null)
+                                {
+                                    for(Student student: students)
+                                    {
+                            %>
+                            <tr>
+                                <td><%= student.getId() %></td>
+                                <td><%= student.getFirstName() %></td>
+                                <td><%= student.getLastName() %></td>
+                                <td><%= student.getEmail() %></td>
+                                <td>
+                                    <form action="<%=request.getContextPath()%>/Students" method="POST">
+                                        <a type="button" href="<%=request.getContextPath()%>/EditStudent?id=<%= student.getId() %>" class="btn btn-success">
+                                            <i class="fas fa-user-edit"></i>
+                                        </a>
+                                        <input type="hidden" name="id" value="<%= student.getId() %>" />
+                                        <button class="btn btn-danger" type="submit"><i class="fas fa-user-times"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <%
+                                    }
+                                }
+                            %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
     </section>
     <!-- /.content -->
   </div>
