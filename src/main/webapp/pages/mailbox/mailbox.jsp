@@ -298,7 +298,6 @@
   <!-- /.content-wrapper -->
   
 	<%@include file="/WEB-INF/views/common/include/footer.jsp"%>
-	<%@include file="/WEB-INF/views/common/include/control-sidebar.jsp"%>
 	
 </div>
 <!-- ./wrapper -->

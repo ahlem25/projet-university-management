@@ -12,3 +12,9 @@
 <script src="resources/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="resources/dist/js/demo.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('a[href="' + this.location.pathname + '"]').parent().addClass('active');
+    });
+</script>

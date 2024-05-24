@@ -4,8 +4,8 @@
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      Anything you want
+      CHERNI Ahlem
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2024 <a href="https://iteam-univ.tn/" target="_blank">Iteam University</a>.</strong> All rights reserved.
   </footer>
