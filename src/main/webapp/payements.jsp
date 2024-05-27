@@ -70,7 +70,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <a class="btn btn-primary pull-right" href="AddPayement.jsp">
+                        <a class="btn btn-primary pull-right" href="<%=request.getContextPath()%>/add-payement">
                             <i class="fa fa-plus"></i> Ajouter
                         </a>
                         <table id="datatable" class="table table-bordered table-hover">
@@ -94,12 +94,12 @@
                                 <td><%= payement.getAmount() %></td>
                                 <td><%= payement.getComment() %></td>
                                 <td>
-                                    <form action="<%=request.getContextPath()%>/Payements" method="POST">
-                                        <a type="button" href="<%=request.getContextPath()%>/EditPayement?id=<%= payement.getId() %>" class="btn btn-success">
-                                            <i class="fas fa-user-edit"></i>
+                                    <form action="<%=request.getContextPath()%>/payements" method="POST">
+                                        <a type="button" href="<%=request.getContextPath()%>/edit-payement?id=<%= payement.getId() %>" class="btn btn-info">
+                                            <i class="fa fa-edit"></i>
                                         </a>
                                         <input type="hidden" name="id" value="<%= payement.getId() %>" />
-                                        <button class="btn btn-danger" type="submit"><i class="fas fa-user-times"></i></button>
+                                        <button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>

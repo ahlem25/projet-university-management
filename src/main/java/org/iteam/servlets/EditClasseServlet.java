@@ -8,7 +8,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import main.java.org.iteam.DAO.ClasseDAO;
 import main.java.org.iteam.javaBeans.Classe;
-import main.java.org.iteam.javaBeans.Student;
 
 import java.io.IOException;
 import java.sql.SQLException;

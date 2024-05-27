@@ -70,7 +70,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <a class="btn btn-primary pull-right" href="AddSubscription.jsp">
+                        <a class="btn btn-primary pull-right" href="<%=request.getContextPath()%>/add-subscription">
                             <i class="fa fa-plus"></i> Ajouter
                         </a>
                         <table id="datatable" class="table table-bordered table-hover">
@@ -96,12 +96,12 @@
                                 <td><%= subscription.getStudentId() %></td>
                                 <td><%= subscription.getClassId() %></td>
                                 <td>
-                                    <form action="<%=request.getContextPath()%>/Subscriptions" method="POST">
-                                        <a type="button" href="<%=request.getContextPath()%>/EditSubscription?id=<%= subscription.getId() %>" class="btn btn-success">
-                                            <i class="fas fa-user-edit"></i>
+                                    <form action="<%=request.getContextPath()%>/subscriptions" method="POST">
+                                        <a type="button" href="<%=request.getContextPath()%>/edit-subscription?id=<%= subscription.getId() %>" class="btn btn-info">
+                                            <i class="fa fa-edit"></i>
                                         </a>
                                         <input type="hidden" name="id" value="<%= subscription.getId() %>" />
-                                        <button class="btn btn-danger" type="submit"><i class="fas fa-user-times"></i></button>
+                                        <button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>
