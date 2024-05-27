@@ -50,12 +50,12 @@
                         }
                         if(request.getAttribute("action").equals("edit"))
                         {%>
-                    <p>L'étudiant a été ajouté avec succès.</p>
+                    <p>L'étudiant a été modifié avec succès.</p>
                     <%
                         }
                         if(request.getAttribute("action").equals("supprimer"))
                         { %>
-                    <p>L'étudiant a été ajouté avec succès.</p>
+                    <p>L'étudiant a été supprimé avec succès.</p>
                     <%
                         }
                     %>
@@ -70,7 +70,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <a class="btn btn-primary pull-right" href="AddStudent.jsp">
+                        <a class="btn btn-primary pull-right" href="<%=request.getContextPath()%>/add-student">
                             <i class="fa fa-plus"></i> Ajouter
                         </a>
                         <table id="datatable" class="table table-bordered table-hover">
@@ -97,11 +97,11 @@
                                 <td><%= student.getEmail() %></td>
                                 <td>
                                     <form action="<%=request.getContextPath()%>/students" method="POST">
-                                        <a type="button" href="<%=request.getContextPath()%>/EditStudent?id=<%= student.getId() %>" class="btn btn-success">
-                                            <i class="fas fa-user-edit"></i>
+                                        <a type="button" href="<%=request.getContextPath()%>/edit-student?id=<%= student.getId() %>" class="btn btn-info">
+                                            <i class="fa fa-edit"></i>
                                         </a>
                                         <input type="hidden" name="id" value="<%= student.getId() %>" />
-                                        <button class="btn btn-danger" type="submit"><i class="fas fa-user-times"></i></button>
+                                        <button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>

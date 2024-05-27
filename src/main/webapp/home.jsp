@@ -22,7 +22,7 @@
         Bienvenue
       </h1>
       <ol class="breadcrumb">
-        <li><a href="home.jsp"><i class="fa fa-dashboard"></i> Accueil</a></li>
+        <li><a href="<%=request.getContextPath()%>/home"><i class="fa fa-dashboard"></i> Accueil</a></li>
       </ol>
     </section>
 

@@ -111,7 +111,7 @@ public class UserDAO implements UserLoginService, UserManagmentService {
 
 	@Override
 	public boolean deleteUserById(int id) throws SQLException {
-		String query = "DELETE FROM users WHERE is= ?";
+		String query = "DELETE FROM users WHERE id= ?";
 		connection = dbInstance.getConnection();
 		PreparedStatement preStat = connection.prepareStatement(query);
 		preStat.setInt(1, id);
@@ -122,7 +122,7 @@ public class UserDAO implements UserLoginService, UserManagmentService {
 
 	@Override
 	public boolean updateUserById(int id, User user) throws SQLException {
-		String query = "UPDATE users SET firstName=?,lastName=?,email=?,password=? WHERE is= ?;";
+		String query = "UPDATE users SET firstName=?,lastName=?,email=?,password=? WHERE id= ?;";
 		connection = dbInstance.getConnection();
 		PreparedStatement preStat = connection.prepareStatement(query);
 		preStat.setString(1, user.getFirstName());

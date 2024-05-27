@@ -22,7 +22,15 @@ public class Student {
 		this.level = level;
 	}
 
-	public int getId() {
+    public Student(String firstName, String lastName, String email, String cin, String level) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.cin = cin;
+		this.level = level;
+    }
+
+    public int getId() {
 		return id;
 	}
 

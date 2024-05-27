@@ -76,7 +76,7 @@ public class ClasseDAO implements ClasseManagmentService {
 
     @Override
     public boolean deleteClasseById(int id) throws SQLException {
-        String query = "DELETE FROM classes WHERE is= ?";
+        String query = "DELETE FROM classes WHERE id= ?";
         connection = dbInstance.getConnection();
         PreparedStatement preStat = connection.prepareStatement(query);
         preStat.setInt(1, id);
@@ -87,7 +87,7 @@ public class ClasseDAO implements ClasseManagmentService {
 
     @Override
     public boolean updateClasseById(int id, Classe classe) throws SQLException {
-        String query = "UPDATE classes SET name=?,comment=?,of_year=? WHERE is= ?;";
+        String query = "UPDATE classes SET name=?,comment=?,of_year=? WHERE id= ?;";
         connection = dbInstance.getConnection();
         PreparedStatement preStat = connection.prepareStatement(query);
         preStat.setString(1, classe.getName());

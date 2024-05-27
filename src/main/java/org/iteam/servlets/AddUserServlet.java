@@ -10,10 +10,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+import jakarta.servlet.http.HttpSession;
 import main.java.org.iteam.DAO.UserDAO;
 import main.java.org.iteam.javaBeans.User;
 
-@WebServlet("/AddUser")
+@WebServlet("/add-user")
 public class AddUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -23,23 +24,27 @@ public class AddUserServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// Vérifier la session est encore ouverte
+		HttpSession session = request.getSession();
+		if(session.getAttribute("user") == null){
+			this.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
+		}
+
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		this.getServletContext().getRequestDispatcher("AddUser.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/AddUser.jsp").forward(request, response);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		int id = Integer.parseInt(request.getParameter("id"));
 		String nom = request.getParameter("nom");
 		String prenom = request.getParameter("prenom");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		
+
 		UserDAO userDAO = new UserDAO();
-		User user = new User(id, nom, prenom, email, password);
+		User user = new User(nom, prenom, email, password);
 		try {
-			userDAO.updateUserById(id, user);
+			userDAO.addUser(user);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -55,8 +60,7 @@ public class AddUserServlet extends HttpServlet {
 		request.setAttribute("nom", nom);
 		request.setAttribute("prenom", prenom);
 		request.setAttribute("action", "add");
-		
-		this.getServletContext().getRequestDispatcher("users.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/users.jsp").forward(request, response);
 
 	}
 }

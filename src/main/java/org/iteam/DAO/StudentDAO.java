@@ -84,7 +84,7 @@ public class StudentDAO implements StudentsManagementService {
 
 	@Override
 	public boolean deleteStudentById(int id) throws SQLException {
-		String query = "DELETE FROM students WHERE is= ?";
+		String query = "DELETE FROM students WHERE id= ?";
 		connection = dbInstance.getConnection();
 		PreparedStatement preStat = connection.prepareStatement(query);
 		preStat.setInt(1, id);
@@ -95,7 +95,7 @@ public class StudentDAO implements StudentsManagementService {
 
 	@Override
 	public boolean updateStudentById(int id, Student student) throws SQLException {
-		String query = "UPDATE students SET firstName=?,lastName=?,email=?,cin=?,level=? WHERE is= ?;";
+		String query = "UPDATE students SET firstName=?,lastName=?,email=?,cin=?,level=? WHERE id= ?;";
 		connection = dbInstance.getConnection();
 		PreparedStatement preStat = connection.prepareStatement(query);
 		preStat.setString(1, student.getFirstName());

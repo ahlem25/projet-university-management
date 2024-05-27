@@ -32,16 +32,34 @@
             <!-- Your Page Content Here -->
             <div class="row">
                 <div class="col-xs-12">
+                    <%
+                        if(request.getAttribute("action")!=null)
+                        {%>
+                        <div class="alert alert-success" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span></button>
+                            <h4>Félicitation!</h4>
+                        <%
+                            if(request.getAttribute("action").equals("updated"))
+                            {%>
+                            <p>La profil a été modifié avec succès.</p>
+                        <%
+                            }
+                        %>
+                    </div>
+                    <%
+                        }
+                    %>
                     <div class="box">
                         <div class="box-header">
                             <h3 class="box-title">Modifier mon profile</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
-                            <form action="<%=request.getContextPath()%>/EditProfile" method="POST">
+                            <form action="<%=request.getContextPath()%>/profile" method="POST">
                                 <%@include file="/WEB-INF/views/common/forms/userForm.jsp"%>
                                 <div class="form-group col-sm-12 float-left">
-                                    <a class="btn btn-secondary ml-2" href="<%=request.getContextPath()%>/home.jsp">
+                                    <a class="btn btn-secondary ml-2" href="<%=request.getContextPath()%>/home">
                                         <i class="fa fa-angle-left"></i> Retour
                                     </a>
                                     <button class="btn btn-success ml-2" type="submit">

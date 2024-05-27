@@ -50,12 +50,12 @@
                         }
                         if(request.getAttribute("action").equals("edit"))
                         {%>
-                    <p>L'inscription a été ajouté avec succès.</p>
+                    <p>L'inscription a été modifié avec succès.</p>
                     <%
                         }
                         if(request.getAttribute("action").equals("supprimer"))
                         { %>
-                    <p>L'inscription a été ajouté avec succès.</p>
+                    <p>L'inscription a été supprimé avec succès.</p>
                     <%
                         }
                     %>

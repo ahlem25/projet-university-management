@@ -79,7 +79,7 @@ public class PayementDAO implements PayementManagmentService {
 
     @Override
     public boolean deletePayementById(int id) throws SQLException {
-        String query = "DELETE FROM payements WHERE is= ?";
+        String query = "DELETE FROM payements WHERE id= ?";
         connection = dbInstance.getConnection();
         PreparedStatement preStat = connection.prepareStatement(query);
         preStat.setInt(1, id);
@@ -90,7 +90,7 @@ public class PayementDAO implements PayementManagmentService {
 
     @Override
     public boolean updatePayementById(int id, Payement payement) throws SQLException {
-        String query = "UPDATE payements SET amount=?,date=?,comment=?,student_id=? WHERE is= ?;";
+        String query = "UPDATE payements SET amount=?,date=?,comment=?,student_id=? WHERE id= ?;";
         connection = dbInstance.getConnection();
         PreparedStatement preStat = connection.prepareStatement(query);
         preStat.setString(1, payement.getAmount());

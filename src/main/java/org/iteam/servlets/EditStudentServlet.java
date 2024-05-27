@@ -10,10 +10,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+import jakarta.servlet.http.HttpSession;
 import main.java.org.iteam.DAO.StudentDAO;
 import main.java.org.iteam.javaBeans.Student;
 
-@WebServlet("/EditStudent")
+@WebServlet("/edit-student")
 public class EditStudentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -22,6 +23,12 @@ public class EditStudentServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// Vérifier la session est encore ouverte
+		HttpSession session = request.getSession();
+		if(session.getAttribute("user") == null){
+			this.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
+		}
+
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		StudentDAO studentDAO = new StudentDAO();
 		
@@ -30,8 +37,8 @@ public class EditStudentServlet extends HttpServlet {
 			Student student = studentDAO.getStudentById(id);
 			
 			request.setAttribute("id", student.getId());
-			request.setAttribute("prenom", student.getFirstName());
-			request.setAttribute("nom", student.getLastName()); 
+			request.setAttribute("nom", student.getFirstName());
+			request.setAttribute("prenom", student.getLastName());
 			request.setAttribute("email", student.getEmail());
 			request.setAttribute("cin", student.getCin());
 			request.setAttribute("level", student.getLevel());
@@ -39,7 +46,7 @@ public class EditStudentServlet extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		this.getServletContext().getRequestDispatcher("/WEB-INF/students/EditStudent.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/EditStudent.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -71,7 +78,7 @@ public class EditStudentServlet extends HttpServlet {
 		request.setAttribute("prenom", prenom);
 		request.setAttribute("action", "edit");
 		
-		this.getServletContext().getRequestDispatcher("/WEB-INF/students/Students.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/students.jsp").forward(request, response);
 
 	}
 }

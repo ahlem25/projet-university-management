@@ -3,12 +3,12 @@
 <%@ page import="jakarta.servlet.*,java.text.*" %>
 
 <%
-    // int id = (int) request.getAttribute("id");
+    Integer id = (Integer) request.getAttribute("id");
     String name = (String) request.getAttribute("name");
     String comment = (String) request.getAttribute("prenom");
     String ofYear = (String) request.getAttribute("email");
 %>
-<!--input type="hidden" name="id" value="<!%= id %>" -->
+<input type="hidden" name="id" value="<%= id != null ? id : "" %>">
 
 <div class="form-group col-sm-6">
     <label for="name">Nom:</label>

@@ -50,12 +50,12 @@
                         }
                         if(request.getAttribute("action").equals("edit"))
                         {%>
-                    <p>Le payement a été ajouté avec succès.</p>
+                    <p>Le payement a été modifié avec succès.</p>
                     <%
                         }
                         if(request.getAttribute("action").equals("supprimer"))
                         { %>
-                    <p>Le payement a été ajouté avec succès.</p>
+                    <p>Le payement a été supprimé avec succès.</p>
                     <%
                         }
                     %>

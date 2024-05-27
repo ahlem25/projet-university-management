@@ -50,12 +50,12 @@
                         }
                         if(request.getAttribute("action").equals("edit"))
                         {%>
-                            <p>L'utilisateur a été ajouté avec succès.</p>
+                            <p>L'utilisateur a été modifié avec succès.</p>
                         <%
                         }
                         if(request.getAttribute("action").equals("supprimer"))
                         { %>
-                            <p>L'utilisateur a été ajouté avec succès.</p>
+                            <p>L'utilisateur a été supprimé avec succès.</p>
                             <%
                         }
                         %>
@@ -70,7 +70,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <a class="btn btn-primary pull-right" href="AddUser.jsp">
+                        <a class="btn btn-primary pull-right" href="<%=request.getContextPath()%>/add-user">
                             <i class="fa fa-plus"></i> Ajouter
                         </a>
                         <table id="datatable" class="table table-bordered table-hover">
@@ -96,12 +96,12 @@
                                 <td><%= user.getLastName() %></td>
                                 <td><%= user.getEmail() %></td>
                                 <td>
-                                    <form action="<%=request.getContextPath()%>/Users" method="POST">
-                                        <a type="button" href="<%=request.getContextPath()%>/EditUser?id=<%= user.getId() %>" class="btn btn-success">
-                                            <i class="fas fa-user-edit"></i>
+                                    <form action="<%=request.getContextPath()%>/users" method="POST">
+                                        <a type="button" href="<%=request.getContextPath()%>/edit-user?id=<%= user.getId() %>" class="btn btn-info">
+                                            <i class="fa fa-edit"></i>
                                         </a>
                                         <input type="hidden" name="id" value="<%= user.getId() %>" />
-                                        <button class="btn btn-danger" type="submit"><i class="fas fa-user-times"></i></button>
+                                        <button class="btn btn-danger" type="submit"><i class="fa fa-user-times"></i></button>
                                     </form>
                                 </td>
                             </tr>

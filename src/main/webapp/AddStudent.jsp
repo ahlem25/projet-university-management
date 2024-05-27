@@ -38,10 +38,10 @@
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
-                            <form action="<%=request.getContextPath()%>/AddUser" method="POST">
+                            <form action="<%=request.getContextPath()%>/add-student" method="POST">
                                 <%@include file="/WEB-INF/views/common/forms/studentForm.jsp"%>
                                 <div class="form-group col-sm-12 float-left">
-                                    <a class="btn btn-secondary ml-2" href="<%=request.getContextPath()%>/students.jsp">
+                                    <a class="btn btn-secondary ml-2" href="<%=request.getContextPath()%>/students">
                                         <i class="fa fa-angle-left"></i> Retour
                                     </a>
                                     <button class="btn btn-success ml-2" type="submit">

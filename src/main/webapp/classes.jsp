@@ -50,12 +50,12 @@
               }
               if(request.getAttribute("action").equals("edit"))
               {%>
-            <p>La classe a été ajouté avec succès.</p>
+            <p>La classe a été modifié avec succès.</p>
             <%
               }
               if(request.getAttribute("action").equals("supprimer"))
               { %>
-            <p>La classe a été ajouté avec succès.</p>
+            <p>La classe a été supprimé avec succès.</p>
             <%
               }
             %>
@@ -70,7 +70,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <a class="btn btn-primary pull-right" href="AddClass.jsp">
+              <a class="btn btn-primary pull-right" href="<%=request.getContextPath()%>/add-class">
                 <i class="fa fa-plus"></i> Ajouter
               </a>
               <table id="datatable" class="table table-bordered table-hover">
@@ -96,8 +96,8 @@
                   <td><%= singleClass.getComment() %></td>
                   <td><%= singleClass.getOfYear() %></td>
                   <td>
-                    <form action="<%=request.getContextPath()%>/Classe" method="POST">
-                      <a type="button" href="<%=request.getContextPath()%>/EditClass?id=<%= singleClass.getId() %>" class="btn btn-success">
+                    <form action="<%=request.getContextPath()%>/classes" method="POST">
+                      <a type="button" href="<%=request.getContextPath()%>/edit-class?id=<%= singleClass.getId() %>" class="btn btn-success">
                         <i class="fas fa-user-edit"></i>
                       </a>
                       <input type="hidden" name="id" value="<%= singleClass.getId() %>" />

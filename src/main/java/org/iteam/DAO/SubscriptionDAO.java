@@ -75,7 +75,7 @@ public class SubscriptionDAO implements SubscriptionManagementService {
 
     @Override
     public boolean deleteSubscriptionById(int id) throws SQLException {
-        String query = "DELETE FROM subscriptions WHERE is= ?";
+        String query = "DELETE FROM subscriptions WHERE id= ?";
         connection = dbInstance.getConnection();
         PreparedStatement preStat = connection.prepareStatement(query);
         preStat.setInt(1, id);
@@ -86,7 +86,7 @@ public class SubscriptionDAO implements SubscriptionManagementService {
 
     @Override
     public boolean updateSubscriptionById(int id, Subscription subscription) throws SQLException {
-        String query = "UPDATE subscriptions SET year=?,student_id=?,class_id=? WHERE is= ?;";
+        String query = "UPDATE subscriptions SET year=?,student_id=?,class_id=? WHERE id= ?;";
         connection = dbInstance.getConnection();
         PreparedStatement preStat = connection.prepareStatement(query);
         preStat.setString(1, subscription.getYear());
