@@ -1,4 +1,4 @@
-package org.iteam.DAO;
+package main.java.org.iteam.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,9 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import org.iteam.DAO.interfaces.StudentsManagementService;
-import org.iteam.config.DbConfig;
-import org.iteam.javaBeans.Student;
+import main.java.org.iteam.DAO.interfaces.StudentsManagementService;
+import main.java.org.iteam.config.DbConfig;
+import main.java.org.iteam.javaBeans.Student;
 
 public class StudentDAO implements StudentsManagementService {
 

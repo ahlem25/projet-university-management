@@ -1,8 +1,8 @@
-package org.iteam.DAO;
+package main.java.org.iteam.DAO;
 
-import org.iteam.DAO.interfaces.PayementManagmentService;
-import org.iteam.config.DbConfig;
-import org.iteam.javaBeans.Payement;
+import main.java.org.iteam.DAO.interfaces.PayementManagmentService;
+import main.java.org.iteam.config.DbConfig;
+import main.java.org.iteam.javaBeans.Payement;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

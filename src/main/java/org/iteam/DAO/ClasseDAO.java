@@ -1,8 +1,8 @@
-package org.iteam.DAO;
+package main.java.org.iteam.DAO;
 
-import org.iteam.DAO.interfaces.ClasseManagmentService;
-import org.iteam.config.DbConfig;
-import org.iteam.javaBeans.Classe;
+import main.java.org.iteam.DAO.interfaces.ClasseManagmentService;
+import main.java.org.iteam.config.DbConfig;
+import main.java.org.iteam.javaBeans.Classe;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

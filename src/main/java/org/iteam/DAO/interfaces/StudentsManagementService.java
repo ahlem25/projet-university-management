@@ -1,9 +1,9 @@
-package org.iteam.DAO.interfaces;
+package main.java.org.iteam.DAO.interfaces;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import org.iteam.javaBeans.Student;
+import main.java.org.iteam.javaBeans.Student;
 
 public interface StudentsManagementService {
 	public Student getStudentById(int id) throws SQLException;

@@ -1,4 +1,4 @@
-package org.iteam.javaBeans;
+package main.java.org.iteam.javaBeans;
 
 public class Subscription {
     private int id;

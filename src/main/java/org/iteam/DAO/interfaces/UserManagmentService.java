@@ -1,10 +1,10 @@
-package org.iteam.DAO.interfaces;
+package main.java.org.iteam.DAO.interfaces;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import org.iteam.javaBeans.Student;
-import org.iteam.javaBeans.User;
+import main.java.org.iteam.javaBeans.Student;
+import main.java.org.iteam.javaBeans.User;
 
 public interface UserManagmentService {
 	public User getUserById(int id) throws SQLException;

@@ -41,7 +41,7 @@
                             <form action="<%=request.getContextPath()%>/AddUser" method="POST">
                                 <%@include file="/WEB-INF/views/common/forms/userForm.jsp"%>
                                 <div class="form-group col-sm-12 float-left">
-                                    <a class="btn btn-secondary ml-2" href="<%=request.getContextPath()%>/users.jsp">
+                                    <a class="btn btn-secondary ml-2" href="<%=request.getContextPath()%>/users">
                                         <i class="fa fa-angle-left"></i> Retour
                                     </a>
                                     <button class="btn btn-success ml-2" type="submit">

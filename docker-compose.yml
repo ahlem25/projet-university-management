@@ -1,0 +1,9 @@
+version: '2.2'
+services:
+    db:
+        image: mysql
+        environment:
+         MYSQL_ROOT_PASSWORD: Ahlem@cherni
+         MYSQL_DATABASE: iteam_db
+        ports:
+         - "3306:3306"

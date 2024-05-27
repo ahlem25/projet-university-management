@@ -1,4 +1,4 @@
-package org.iteam.DAO;
+package main.java.org.iteam.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,10 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import org.iteam.DAO.interfaces.UserLoginService;
-import org.iteam.DAO.interfaces.UserManagmentService;
-import org.iteam.config.DbConfig;
-import org.iteam.javaBeans.User;
+import main.java.org.iteam.DAO.interfaces.UserLoginService;
+import main.java.org.iteam.DAO.interfaces.UserManagmentService;
+import main.java.org.iteam.config.DbConfig;
+import main.java.org.iteam.javaBeans.User;
 
 public class UserDAO implements UserLoginService, UserManagmentService {
 	private DbConfig dbInstance;
@@ -38,7 +38,7 @@ public class UserDAO implements UserLoginService, UserManagmentService {
 		User user = null;
 		
 		if(result.next()) {
-			int id = result.getInt("id_user");
+			int id = result.getInt("id");
 			String firstName = result.getString("firstName");
 			String lastName = result.getString("lastName");
 			String userEmail = result.getString("email");

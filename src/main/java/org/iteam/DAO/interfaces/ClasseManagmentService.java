@@ -1,6 +1,6 @@
-package org.iteam.DAO.interfaces;
+package main.java.org.iteam.DAO.interfaces;
 
-import org.iteam.javaBeans.Classe;
+import main.java.org.iteam.javaBeans.Classe;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

@@ -1,19 +1,19 @@
-package org.iteam.servlets;
+package main.java.org.iteam.servlets;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
  
-import org.iteam.DAO.StudentDAO;
-import org.iteam.javaBeans.Student;
+import main.java.org.iteam.DAO.StudentDAO;
+import main.java.org.iteam.javaBeans.Student;
 
-@WebServlet("/Students")
+@WebServlet("/students")
 public class StudentsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -23,7 +23,6 @@ public class StudentsServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		
 		StudentDAO studentDAO = new StudentDAO();
 
 		try {
@@ -33,7 +32,7 @@ public class StudentsServlet extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		this.getServletContext().getRequestDispatcher("/WEB-INF/students/Students.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("students.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -1,6 +1,6 @@
-package org.iteam.DAO.interfaces;
+package main.java.org.iteam.DAO.interfaces;
 
-import org.iteam.javaBeans.Payement;
+import main.java.org.iteam.javaBeans.Payement;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

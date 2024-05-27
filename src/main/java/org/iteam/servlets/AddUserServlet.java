@@ -1,17 +1,17 @@
-package org.iteam.servlets;
+package main.java.org.iteam.servlets;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-import org.iteam.DAO.UserDAO;
-import org.iteam.javaBeans.User;
+import main.java.org.iteam.DAO.UserDAO;
+import main.java.org.iteam.javaBeans.User;
 
 @WebServlet("/AddUser")
 public class AddUserServlet extends HttpServlet {
@@ -24,7 +24,7 @@ public class AddUserServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		this.getServletContext().getRequestDispatcher("/AddUser.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("AddUser.jsp").forward(request, response);
 	}
 
 	@Override
@@ -44,7 +44,7 @@ public class AddUserServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		ArrayList<User> users = null; 
+		ArrayList<User> users = null;
 		try {
 			users = userDAO.getAllUsers();
 		} catch (SQLException e) {
@@ -56,7 +56,7 @@ public class AddUserServlet extends HttpServlet {
 		request.setAttribute("prenom", prenom);
 		request.setAttribute("action", "add");
 		
-		this.getServletContext().getRequestDispatcher("/users.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("users.jsp").forward(request, response);
 
 	}
 }

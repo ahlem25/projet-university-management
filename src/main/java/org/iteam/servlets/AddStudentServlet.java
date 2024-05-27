@@ -1,18 +1,18 @@
-package org.iteam.servlets;
+package main.java.org.iteam.servlets;
 
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-import org.iteam.DAO.StudentDAO;
-import org.iteam.javaBeans.Student;
+import main.java.org.iteam.DAO.StudentDAO;
+import main.java.org.iteam.javaBeans.Student;
 
 @WebServlet("/AddStudent")
 public class AddStudentServlet extends HttpServlet {
@@ -44,7 +44,7 @@ public class AddStudentServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		ArrayList<Student> students = null; 
+		ArrayList<Student> students = null;
 		try {
 			students = studentDAO.getAllStudents();
 		} catch (SQLException e) {

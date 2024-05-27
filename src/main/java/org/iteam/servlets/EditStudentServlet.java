@@ -1,17 +1,17 @@
-package org.iteam.servlets;
+package main.java.org.iteam.servlets;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-import org.iteam.DAO.StudentDAO;
-import org.iteam.javaBeans.Student;
+import main.java.org.iteam.DAO.StudentDAO;
+import main.java.org.iteam.javaBeans.Student;
 
 @WebServlet("/EditStudent")
 public class EditStudentServlet extends HttpServlet {
@@ -23,11 +23,11 @@ public class EditStudentServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		StudentDAO patientDAO = new StudentDAO();
+		StudentDAO studentDAO = new StudentDAO();
 		
 		try {
 			int id = Integer.parseInt(request.getParameter("id"));
-			Student student = patientDAO.getStudentById(id);
+			Student student = studentDAO.getStudentById(id);
 			
 			request.setAttribute("id", student.getId());
 			request.setAttribute("prenom", student.getFirstName());

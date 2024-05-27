@@ -26,8 +26,8 @@
         <li>
         	<a href="<%=request.getContextPath()%>/home.jsp"><i class="fa fa-dashboard"></i> <span>Accueil</span></a>
         </li>
-        <li><a href="<%=request.getContextPath()%>/users.jsp"><i class="fa fa-users"></i> <span>Gestion d'utilisateurs</span></a></li>
-        <li><a href="<%=request.getContextPath()%>/students.jsp"><i class="fa fa-list"></i> <span>Gestion des étudiants</span></a></li>
+        <li><a href="<%=request.getContextPath()%>/users"><i class="fa fa-users"></i> <span>Gestion d'utilisateurs</span></a></li>
+        <li><a href="<%=request.getContextPath()%>/students"><i class="fa fa-list"></i> <span>Gestion des étudiants</span></a></li>
          <li><a href="<%=request.getContextPath()%>/payements.jsp"><i class="fa fa-credit-card"></i> <span>Gestion des payements</span></a></li>
           <li><a href="<%=request.getContextPath()%>/subscriptions.jsp"><i class="fa fa-list"></i> <span>Gestion des inscriptions</span></a></li>
            <li><a href="<%=request.getContextPath()%>/classes.jsp"><i class="fa fa-tags"></i> <span>Gestion des classes</span></a></li>

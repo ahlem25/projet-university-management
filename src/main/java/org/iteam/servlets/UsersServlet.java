@@ -1,19 +1,18 @@
-package org.iteam.servlets;
+package main.java.org.iteam.servlets;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import main.java.org.iteam.DAO.UserDAO;
+import main.java.org.iteam.javaBeans.User;
 
-import org.iteam.DAO.UserDAO;
-import org.iteam.javaBeans.User;
-
-@WebServlet("/Users")
+@WebServlet("/users")
 public class UsersServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

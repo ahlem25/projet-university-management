@@ -1,4 +1,4 @@
-package org.iteam.config;
+package main.java.org.iteam.config;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

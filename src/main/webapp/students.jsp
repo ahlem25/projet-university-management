@@ -1,4 +1,4 @@
-<%@ page import="org.iteam.javaBeans.Student" %>
+<%@ page import="main.java.org.iteam.javaBeans.Student" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
@@ -96,7 +96,7 @@
                                 <td><%= student.getLastName() %></td>
                                 <td><%= student.getEmail() %></td>
                                 <td>
-                                    <form action="<%=request.getContextPath()%>/Students" method="POST">
+                                    <form action="<%=request.getContextPath()%>/students" method="POST">
                                         <a type="button" href="<%=request.getContextPath()%>/EditStudent?id=<%= student.getId() %>" class="btn btn-success">
                                             <i class="fas fa-user-edit"></i>
                                         </a>
