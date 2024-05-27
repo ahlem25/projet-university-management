@@ -43,22 +43,15 @@ public class AddUserServlet extends HttpServlet {
 
 		UserDAO userDAO = new UserDAO();
 		User user = new User(nom, prenom, email, password);
-		try {
-			userDAO.addUser(user);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
 		ArrayList<User> users = null;
 		try {
+			userDAO.addUser(user);
 			users = userDAO.getAllUsers();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
 		request.setAttribute("users", users);
-		request.setAttribute("nom", nom);
-		request.setAttribute("prenom", prenom);
 		request.setAttribute("action", "add");
 		this.getServletContext().getRequestDispatcher("/users.jsp").forward(request, response);
 

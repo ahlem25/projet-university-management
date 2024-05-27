@@ -5,8 +5,8 @@
 <%
     Integer id = (Integer) request.getAttribute("id");
     String name = (String) request.getAttribute("name");
-    String comment = (String) request.getAttribute("prenom");
-    String ofYear = (String) request.getAttribute("email");
+    String comment = (String) request.getAttribute("comment");
+    String ofYear = (String) request.getAttribute("ofYear");
 %>
 <input type="hidden" name="id" value="<%= id != null ? id : "" %>">
 
@@ -20,7 +20,7 @@
 </div>
 <div class="form-group col-sm-12">
     <label for="comment">Commentaire:</label>
-    <textarea name="comment" id="comment" value="<%= comment != null ? comment : "" %>" class="form-control"></textarea>
+    <textarea name="comment" id="comment" class="form-control"><%= comment != null ? comment : "" %></textarea>
 </div>
 
 

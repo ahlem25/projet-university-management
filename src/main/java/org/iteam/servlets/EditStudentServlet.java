@@ -60,22 +60,15 @@ public class EditStudentServlet extends HttpServlet {
 		
 		StudentDAO studentDAO = new StudentDAO();
 		Student student = new Student(id, nom, prenom, email, cin, level);
+		ArrayList<Student> students = null;
 		try {
 			studentDAO.updateStudentById(id, student);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		ArrayList<Student> students = null; 
-		try {
 			students = studentDAO.getAllStudents();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
 		request.setAttribute("students", students);
-		request.setAttribute("nom", nom);
-		request.setAttribute("prenom", prenom);
 		request.setAttribute("action", "edit");
 		
 		this.getServletContext().getRequestDispatcher("/students.jsp").forward(request, response);

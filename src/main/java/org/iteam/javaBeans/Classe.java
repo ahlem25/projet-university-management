@@ -10,7 +10,11 @@ public class Classe {
     }
 
     public Classe(int id, String name, String comment, String of_year) {
+        this(name, comment, of_year);
         this.id = id;
+    }
+
+    public Classe(String name, String comment, String of_year) {
         this.name = name;
         this.comment = comment;
         this.of_year = of_year;

@@ -10,7 +10,10 @@ public class Subscription {
     }
 
     public Subscription(int id, String year, int student_id, int class_id) {
+        this(year, student_id, class_id);
         this.id = id;
+    }
+    public Subscription(String year, int student_id, int class_id) {
         this.year = year;
         this.student_id = student_id;
         this.class_id = class_id;

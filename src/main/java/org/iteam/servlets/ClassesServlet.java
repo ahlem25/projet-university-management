@@ -38,4 +38,19 @@ public class ClassesServlet extends HttpServlet {
         }
         this.getServletContext().getRequestDispatcher("/classes.jsp").forward(request, response);
     }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        ClasseDAO classeDAO = new ClasseDAO();
+        int id = Integer.parseInt(request.getParameter("id"));
+        try {
+            classeDAO.deleteClasseById(id);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        request.setAttribute("id", id);
+        request.setAttribute("action", "supprimer");
+        doGet(request, response);
+    }
 }

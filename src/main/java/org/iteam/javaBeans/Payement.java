@@ -13,7 +13,11 @@ public class Payement {
     }
 
     public Payement(int id, String amount, Date date, String comment, int student_id) {
+        this(amount, date, comment, student_id);
         this.id = id;
+    }
+
+    public Payement(String amount, Date date, String comment, int student_id) {
         this.amount = amount;
         this.date = date;
         this.comment = comment;

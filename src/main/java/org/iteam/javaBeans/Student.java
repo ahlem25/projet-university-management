@@ -13,13 +13,8 @@ public class Student {
 	}
 
 	public Student(int id, String firstName, String lastName, String email, String cin, String level) {
-		super();
+		this(firstName, lastName, email, cin, level);
 		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.cin = cin;
-		this.level = level;
 	}
 
     public Student(String firstName, String lastName, String email, String cin, String level) {

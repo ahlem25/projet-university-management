@@ -43,22 +43,15 @@ public class AddStudentServlet extends HttpServlet {
 		
 		StudentDAO studentDAO = new StudentDAO();
 		Student student = new Student(nom, prenom, email, cin, level);
-		try {
-			studentDAO.addStudent(student);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
 		ArrayList<Student> students = null;
 		try {
+			studentDAO.addStudent(student);
 			students = studentDAO.getAllStudents();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
 		request.setAttribute("students", students);
-		request.setAttribute("nom", nom);
-		request.setAttribute("prenom", prenom);
 		request.setAttribute("action", "add");
 		
 		this.getServletContext().getRequestDispatcher("/students.jsp").forward(request, response);

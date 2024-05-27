@@ -97,11 +97,11 @@
                   <td><%= singleClass.getOfYear() %></td>
                   <td>
                     <form action="<%=request.getContextPath()%>/classes" method="POST">
-                      <a type="button" href="<%=request.getContextPath()%>/edit-class?id=<%= singleClass.getId() %>" class="btn btn-success">
-                        <i class="fas fa-user-edit"></i>
+                      <a type="button" href="<%=request.getContextPath()%>/edit-class?id=<%= singleClass.getId() %>" class="btn btn-info">
+                        <i class="fa fa-edit"></i>
                       </a>
                       <input type="hidden" name="id" value="<%= singleClass.getId() %>" />
-                      <button class="btn btn-danger" type="submit"><i class="fas fa-user-times"></i></button>
+                      <button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i></button>
                     </form>
                   </td>
                 </tr>

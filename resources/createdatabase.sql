@@ -55,3 +55,25 @@ CREATE TABLE IF NOT EXISTS `students` (
 INSERT INTO `students` (`firstName`, `lastName`, `email`, `cin`, `level`) VALUES
 ('Cherni', 'Ahlem', 'Ahlem.cherni112@gmail.com', '09927888', '1ere GL'),
 ('Walid', 'Barrada', 'Walid@gmail.com', '01346509', '1ere GL');
+
+
+--
+-- Structure de la table `classes`
+--
+
+DROP TABLE IF EXISTS `classes`;
+CREATE TABLE IF NOT EXISTS `classes` (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `name` varchar(100) DEFAULT NULL,
+    `comment` varchar(100) DEFAULT NULL,
+    `of_year` varchar(100) DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `USER_UN` (`id`)
+    ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `classes`
+--
+INSERT INTO `classes` (`name`, `comment`, `of_year`) VALUES
+('1ere GL', '1ere mastère en génie logiciel', '2024'),
+('2eme GL', '2eme mastère en génie logiciel', '2024');

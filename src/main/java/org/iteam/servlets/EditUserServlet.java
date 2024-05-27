@@ -58,14 +58,9 @@ public class EditUserServlet extends HttpServlet {
 		
 		UserDAO userDAO = new UserDAO();
 		User user = new User(id, nom, prenom, email, password);
+		ArrayList<User> users = null;
 		try {
 			userDAO.updateUserById(id, user);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		ArrayList<User> users = null; 
-		try {
 			users = userDAO.getAllUsers();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -80,8 +75,6 @@ public class EditUserServlet extends HttpServlet {
 		}
 		
 		request.setAttribute("users", users);
-		request.setAttribute("nom", nom);
-		request.setAttribute("prenom", prenom);
 		request.setAttribute("action", "edit");
 		
 		this.getServletContext().getRequestDispatcher("/users.jsp").forward(request, response);
