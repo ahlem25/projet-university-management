@@ -54,6 +54,8 @@ public class SubscriptionDAO implements SubscriptionManagementService {
             subscription.setYear(result.getString("year"));
             subscription.setStudentId(result.getInt("student_id"));
             subscription.setClassId(result.getInt("class_id"));
+            subscription.setStudentFullName(this.getStudentFullName(result.getInt("student_id")));
+            subscription.setClasseName(this.getClasseName(result.getInt("class_id")));
             reponse.add(subscription);
         }
         preStat.close();
@@ -96,5 +98,34 @@ public class SubscriptionDAO implements SubscriptionManagementService {
         int result = preStat.executeUpdate();
         preStat.close();
         return result != 0;
+    }
+
+    private String getStudentFullName(int idStudent) throws SQLException {
+        String query = "SELECT firstName,lastName FROM students WHERE id = ?;";
+        connection = dbInstance.getConnection();
+        PreparedStatement preStat = connection.prepareStatement(query);
+        preStat.setInt(1, idStudent);
+        ResultSet result = preStat.executeQuery();
+        String studentFullName = "";
+        if(result.next()) {
+            studentFullName = result.getString("firstName") + " " +
+                    result.getString("lastName");
+        }
+        preStat.close();
+        return studentFullName;
+    }
+
+    private String getClasseName(int idClass) throws SQLException {
+        String query = "SELECT name FROM classes WHERE id = ?;";
+        connection = dbInstance.getConnection();
+        PreparedStatement preStat = connection.prepareStatement(query);
+        preStat.setInt(1, idClass);
+        ResultSet result = preStat.executeQuery();
+        String classeName = "";
+        if(result.next()) {
+            classeName = result.getString("name");
+        }
+        preStat.close();
+        return classeName;
     }
 }

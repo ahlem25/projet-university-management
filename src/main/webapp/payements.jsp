@@ -78,6 +78,7 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Montant</th>
+                                <th>Etudiant</th>
                                 <th>Commentaire</th>
                                 <th>Actions</th>
                             </tr>
@@ -92,6 +93,7 @@
                             <tr>
                                 <td><%= payement.getId() %></td>
                                 <td><%= payement.getAmount() %></td>
+                                <td><%= payement.getStudentFullName() %></td>
                                 <td><%= payement.getComment() %></td>
                                 <td>
                                     <form action="<%=request.getContextPath()%>/payements" method="POST" onsubmit="return confirmDelete()">

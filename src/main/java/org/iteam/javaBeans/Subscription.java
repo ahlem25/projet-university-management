@@ -5,6 +5,8 @@ public class Subscription {
     private String year;
     private int student_id;
     private int class_id;
+    private String studentFullName;
+    private String classeName;
 
     public Subscription() {
     }
@@ -49,5 +51,21 @@ public class Subscription {
 
     public void setClassId(int class_id) {
         this.class_id = class_id;
+    }
+
+    public String getStudentFullName() {
+        return studentFullName;
+    }
+
+    public void setStudentFullName(String studentFullName) {
+        this.studentFullName = studentFullName;
+    }
+
+    public String getClasseName() {
+        return classeName;
+    }
+
+    public void setClasseName(String classeName) {
+        this.classeName = classeName;
     }
 }

@@ -3,6 +3,7 @@ package main.java.org.iteam.DAO;
 import main.java.org.iteam.DAO.interfaces.PayementManagmentService;
 import main.java.org.iteam.config.DbConfig;
 import main.java.org.iteam.javaBeans.Payement;
+import main.java.org.iteam.javaBeans.Student;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -57,6 +58,7 @@ public class PayementDAO implements PayementManagmentService {
             payement.setDate(result.getDate("date").toLocalDate());
             payement.setComment(result.getString("comment"));
             payement.setStudentId(result.getInt("student_id"));
+            payement.setStudentFullName(this.getStudentFullName(result.getInt("student_id")));
             reponse.add(payement);
         }
         preStat.close();
@@ -101,5 +103,20 @@ public class PayementDAO implements PayementManagmentService {
         int result = preStat.executeUpdate();
         preStat.close();
         return result != 0;
+    }
+
+    private String getStudentFullName(int idStudent) throws SQLException {
+        String query = "SELECT firstName,lastName FROM students WHERE id = ?;";
+        connection = dbInstance.getConnection();
+        PreparedStatement preStat = connection.prepareStatement(query);
+        preStat.setInt(1, idStudent);
+        ResultSet result = preStat.executeQuery();
+        String studentFullName = "";
+        if(result.next()) {
+            studentFullName = result.getString("firstName") + " " +
+            result.getString("lastName");
+        }
+        preStat.close();
+        return studentFullName;
     }
 }

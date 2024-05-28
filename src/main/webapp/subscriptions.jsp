@@ -93,8 +93,8 @@
                             <tr>
                                 <td><%= subscription.getId() %></td>
                                 <td><%= subscription.getYear() %></td>
-                                <td><%= subscription.getStudentId() %></td>
-                                <td><%= subscription.getClassId() %></td>
+                                <td><%= subscription.getStudentFullName() %></td>
+                                <td><%= subscription.getClasseName() %></td>
                                 <td>
                                     <form action="<%=request.getContextPath()%>/subscriptions" method="POST" onsubmit="return confirmDelete()">
                                         <a type="button" href="<%=request.getContextPath()%>/edit-subscription?id=<%= subscription.getId() %>" class="btn btn-info">

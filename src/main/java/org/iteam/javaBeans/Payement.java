@@ -9,6 +9,7 @@ public class Payement {
     private LocalDate date;
     private String comment;
     private int student_id;
+    private String studentFullName;
 
     public Payement() {
     }
@@ -63,5 +64,13 @@ public class Payement {
 
     public void setStudentId(int student_id) {
         this.student_id = student_id;
+    }
+
+    public String getStudentFullName() {
+        return studentFullName;
+    }
+
+    public void setStudentFullName(String studentFullName) {
+        this.studentFullName = studentFullName;
     }
 }

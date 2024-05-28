@@ -32,9 +32,10 @@ public class ProfileServlet extends HttpServlet {
             request.setAttribute("email", user.getEmail());
             request.setAttribute("password", user.getPassword());
             this.getServletContext().getRequestDispatcher("/profile.jsp").forward(request, response);
+        }else {
+            // Redirection to login if not connected (using session)
+            this.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
         }
-        // Redirection to login if not connected (using session)
-        this.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
