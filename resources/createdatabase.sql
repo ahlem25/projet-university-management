@@ -7,7 +7,7 @@
 DROP DATABASE IF EXISTS iteam_db;
 CREATE DATABASE iteam_db;
 
-
+use `iteam_db`;
 --
 -- Structure de la table `users`
 --
