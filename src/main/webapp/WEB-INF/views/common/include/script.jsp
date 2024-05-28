@@ -18,3 +18,10 @@
         $('a[href="' + this.location.pathname + '"]').parent().addClass('active');
     });
 </script>
+
+<script>
+    function confirmDelete()
+    {
+        return confirm("Êtes-vous sûr ?");
+    }
+</script>

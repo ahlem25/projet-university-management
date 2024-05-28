@@ -96,7 +96,7 @@
                                 <td><%= user.getLastName() %></td>
                                 <td><%= user.getEmail() %></td>
                                 <td>
-                                    <form action="<%=request.getContextPath()%>/users" method="POST">
+                                    <form action="<%=request.getContextPath()%>/users" method="POST" onsubmit="return confirmDelete()">
                                         <a type="button" href="<%=request.getContextPath()%>/edit-user?id=<%= user.getId() %>" class="btn btn-info">
                                             <i class="fa fa-edit"></i>
                                         </a>

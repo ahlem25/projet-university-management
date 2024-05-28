@@ -6,12 +6,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import main.java.org.iteam.DAO.interfaces.HomeService;
 import main.java.org.iteam.DAO.interfaces.UserLoginService;
 import main.java.org.iteam.DAO.interfaces.UserManagmentService;
 import main.java.org.iteam.config.DbConfig;
+import main.java.org.iteam.javaBeans.HomeData;
 import main.java.org.iteam.javaBeans.User;
 
-public class UserDAO implements UserLoginService, UserManagmentService {
+public class UserDAO implements UserLoginService, UserManagmentService, HomeService {
 	private DbConfig dbInstance;
 	private Connection connection;
 	
@@ -135,4 +137,53 @@ public class UserDAO implements UserLoginService, UserManagmentService {
 		return result != 0;
 	}
 
+	public HomeData getData() {
+		String usersQuery = "SELECT COUNT(*) AS usersNbr FROM users";
+		String studentsQuery = "SELECT COUNT(*) AS studentsNbr FROM students";
+		String subscriptionsQuery = "SELECT COUNT(*) AS subscriptionsNbr FROM subscriptions";
+		String payementsQuery = "SELECT COUNT(*) AS payementsNbr FROM payements";
+		HomeData homeData = new HomeData();
+		ResultSet result;
+		PreparedStatement preStat;
+		try{
+			// nombre d'utilisateurs
+			connection = dbInstance.getConnection();
+			preStat = connection.prepareStatement(usersQuery);
+			result = preStat.executeQuery(usersQuery);
+			if (result.next()){
+				homeData.setUsersNbr(result.getInt("usersNbr"));
+			}
+			preStat.close();
+
+			// nombre d'etudiants
+			connection = dbInstance.getConnection();
+			preStat = connection.prepareStatement(studentsQuery);
+			result = preStat.executeQuery(studentsQuery);
+			if (result.next()){
+				homeData.setStudentsNbr(result.getInt("studentsNbr"));
+			}
+			preStat.close();
+
+			// nombre d'inscriptions
+			connection = dbInstance.getConnection();
+			preStat = connection.prepareStatement(subscriptionsQuery);
+			result = preStat.executeQuery(subscriptionsQuery);
+			if (result.next()){
+				homeData.setSubscriptionsNbr(result.getInt("subscriptionsNbr"));
+			}
+			preStat.close();
+
+			// nombre de payements
+			connection = dbInstance.getConnection();
+			preStat = connection.prepareStatement(payementsQuery);
+			result = preStat.executeQuery(payementsQuery);
+			if (result.next()){
+				homeData.setPayementsNbr(result.getInt("payementsNbr"));
+			}
+			preStat.close();
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return homeData;
+	}
 }

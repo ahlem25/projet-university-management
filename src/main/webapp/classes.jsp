@@ -96,7 +96,7 @@
                   <td><%= singleClass.getComment() %></td>
                   <td><%= singleClass.getOfYear() %></td>
                   <td>
-                    <form action="<%=request.getContextPath()%>/classes" method="POST">
+                    <form action="<%=request.getContextPath()%>/classes" method="POST" onsubmit="return confirmDelete()">
                       <a type="button" href="<%=request.getContextPath()%>/edit-class?id=<%= singleClass.getId() %>" class="btn btn-info">
                         <i class="fa fa-edit"></i>
                       </a>

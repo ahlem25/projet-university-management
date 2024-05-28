@@ -96,7 +96,7 @@
                                 <td><%= subscription.getStudentId() %></td>
                                 <td><%= subscription.getClassId() %></td>
                                 <td>
-                                    <form action="<%=request.getContextPath()%>/subscriptions" method="POST">
+                                    <form action="<%=request.getContextPath()%>/subscriptions" method="POST" onsubmit="return confirmDelete()">
                                         <a type="button" href="<%=request.getContextPath()%>/edit-subscription?id=<%= subscription.getId() %>" class="btn btn-info">
                                             <i class="fa fa-edit"></i>
                                         </a>

@@ -49,7 +49,7 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
             // redirection vers la page home
-            this.getServletContext().getRequestDispatcher("/home.jsp").forward(request, response);
+            this.getServletContext().getRequestDispatcher("/home").forward(request, response);
         }
         else {
             String message = "E-mail et/ou mot de passe incorrect(s)";

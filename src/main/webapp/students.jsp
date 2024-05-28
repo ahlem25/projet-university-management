@@ -96,7 +96,7 @@
                                 <td><%= student.getLastName() %></td>
                                 <td><%= student.getEmail() %></td>
                                 <td>
-                                    <form action="<%=request.getContextPath()%>/students" method="POST">
+                                    <form action="<%=request.getContextPath()%>/students" method="POST" onsubmit="return confirmDelete()">
                                         <a type="button" href="<%=request.getContextPath()%>/edit-student?id=<%= student.getId() %>" class="btn btn-info">
                                             <i class="fa fa-edit"></i>
                                         </a>

@@ -1,5 +1,6 @@
+<%@ page import="main.java.org.iteam.javaBeans.HomeData" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +14,11 @@
 
 	<%@include file="/WEB-INF/views/common/include/header.jsp"%>
 	<%@include file="/WEB-INF/views/common/include/aside.jsp"%>
-
+  <%
+    HomeData homeData ;
+    if (request.getAttribute("homeData") != null) homeData =(HomeData) request.getAttribute("homeData");
+    else homeData = new HomeData();
+  %>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -35,7 +40,7 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>150</h3>
+              <h3><%= homeData.getPayementsNbr() %></h3>
 
               <p>Payements effectuées</p>
             </div>
@@ -50,7 +55,7 @@
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
+              <h3><%= homeData.getSubscriptionsNbr() %></h3>
 
               <p>Nouvelle inscriptions</p>
             </div>
@@ -65,7 +70,7 @@
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>44</h3>
+              <h3><%= homeData.getUsersNbr() %></h3>
 
               <p>Utilisateurs enregistrées</p>
             </div>
@@ -80,7 +85,7 @@
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
-              <h3>65</h3>
+              <h3><%= homeData.getStudentsNbr() %></h3>
 
               <p>Etudiants</p>
             </div>

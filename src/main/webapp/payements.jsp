@@ -94,7 +94,7 @@
                                 <td><%= payement.getAmount() %></td>
                                 <td><%= payement.getComment() %></td>
                                 <td>
-                                    <form action="<%=request.getContextPath()%>/payements" method="POST">
+                                    <form action="<%=request.getContextPath()%>/payements" method="POST" onsubmit="return confirmDelete()">
                                         <a type="button" href="<%=request.getContextPath()%>/edit-payement?id=<%= payement.getId() %>" class="btn btn-info">
                                             <i class="fa fa-edit"></i>
                                         </a>
