@@ -39,7 +39,7 @@ public class UsersServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		UserDAO userDAO = new UserDAO();
 		int id = Integer.parseInt(request.getParameter("id"));
 		try {
@@ -47,7 +47,6 @@ public class UsersServlet extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		request.setAttribute("id", id);
 		request.setAttribute("action", "supprimer");
 		doGet(request, response);
 	}

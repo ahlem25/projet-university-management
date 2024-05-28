@@ -49,7 +49,6 @@ public class ClassesServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        request.setAttribute("id", id);
         request.setAttribute("action", "supprimer");
         doGet(request, response);
     }

@@ -37,4 +37,17 @@ public class SubscriptionsServlet extends HttpServlet {
         }
         this.getServletContext().getRequestDispatcher("/subscriptions.jsp").forward(request, response);
     }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        SubscriptionDAO subscriptionDAO = new SubscriptionDAO();
+        int id = Integer.parseInt(request.getParameter("id"));
+        try {
+            subscriptionDAO.deleteSubscriptionById(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        request.setAttribute("action", "supprimer");
+        doGet(request, response);
+    }
 }

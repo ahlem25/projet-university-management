@@ -77,3 +77,37 @@ CREATE TABLE IF NOT EXISTS `classes` (
 INSERT INTO `classes` (`name`, `comment`, `of_year`) VALUES
 ('1ere GL', '1ere mastère en génie logiciel', '2024'),
 ('2eme GL', '2eme mastère en génie logiciel', '2024');
+
+--
+-- Structure de la table `payements`
+--
+
+DROP TABLE IF EXISTS `payements`;
+
+CREATE TABLE IF NOT EXISTS `payements` (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `amount` varchar(100) DEFAULT NULL,
+    `date` date DEFAULT NULL,
+    `comment` varchar(255) DEFAULT NULL,
+    `student_id` int DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    KEY `student_FK` (`student_id`)
+    ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+--
+-- Structure de la table `subscriptions`
+--
+
+DROP TABLE IF EXISTS `subscriptions`;
+
+CREATE TABLE IF NOT EXISTS `subscriptions` (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `year` varchar(100) DEFAULT NULL,
+    `student_id` int DEFAULT NULL,
+    `class_id` int DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    KEY `student_FK` (`student_id`),
+    KEY `class_FK` (`class_id`)
+    ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+

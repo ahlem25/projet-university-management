@@ -7,10 +7,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import main.java.org.iteam.DAO.PayementDAO;
+import main.java.org.iteam.DAO.StudentDAO;
 import main.java.org.iteam.javaBeans.Payement;
+import main.java.org.iteam.javaBeans.Student;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -29,13 +32,20 @@ public class AddPayementServlet extends HttpServlet {
             this.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
         }
 
+        StudentDAO studentDAO = new StudentDAO();
+        try{
+            ArrayList<Student> students = studentDAO.getAllStudents();
+            request.setAttribute("students", students);
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
         response.getWriter().append("Served at: ").append(request.getContextPath());
         this.getServletContext().getRequestDispatcher("/AddPayement.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String amount = request.getParameter("amount");
-        Date date = new Date(request.getParameter("date"));
+        LocalDate date = LocalDate.parse(request.getParameter("date"));
         String comment = request.getParameter("comment");
         int student_id = Integer.parseInt(request.getParameter("student_id"));
 

@@ -42,7 +42,7 @@
             <div class="icon">
               <i class="ion ion-bag"></i>
             </div>
-            <a href="payements.jsp" class="small-box-footer">Plus d'infos <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<%=request.getContextPath()%>/payements" class="small-box-footer">Plus d'infos <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -57,7 +57,7 @@
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
             </div>
-            <a href="subscriptions.jsp" class="small-box-footer">Plus d'infos <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<%=request.getContextPath()%>/subscriptions" class="small-box-footer">Plus d'infos <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -87,7 +87,7 @@
             <div class="icon">
               <i class="ion ion-pie-graph"></i>
             </div>
-            <a href="students.jsp" class="small-box-footer">Plus d'infos <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<%=request.getContextPath()%>/students" class="small-box-footer">Plus d'infos <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->

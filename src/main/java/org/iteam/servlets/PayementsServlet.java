@@ -37,4 +37,17 @@ public class PayementsServlet extends HttpServlet {
         }
         this.getServletContext().getRequestDispatcher("/payements.jsp").forward(request, response);
     }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        PayementDAO payementDAO = new PayementDAO();
+        int id = Integer.parseInt(request.getParameter("id"));
+        try {
+            payementDAO.deletePayementById(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        request.setAttribute("action", "supprimer");
+        doGet(request, response);
+    }
 }

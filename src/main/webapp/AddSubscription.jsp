@@ -39,7 +39,7 @@
                         <!-- /.box-header -->
                         <div class="box-body">
                             <form action="<%=request.getContextPath()%>/add-subscription" method="POST">
-                                <%@include file="/WEB-INF/views/common/forms/payementForm.jsp"%>
+                                <%@include file="/WEB-INF/views/common/forms/subscriptionForm.jsp"%>
                                 <div class="form-group col-sm-12 float-left">
                                     <a class="btn btn-secondary ml-2" href="<%=request.getContextPath()%>/subscriptions">
                                         <i class="fa fa-angle-left"></i> Retour

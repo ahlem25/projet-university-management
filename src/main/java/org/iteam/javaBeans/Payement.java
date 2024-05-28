@@ -1,23 +1,24 @@
 package main.java.org.iteam.javaBeans;
 
-import java.util.Date;
+
+import java.time.LocalDate;
 
 public class Payement {
     private int id;
     private String amount;
-    private Date date;
+    private LocalDate date;
     private String comment;
     private int student_id;
 
     public Payement() {
     }
 
-    public Payement(int id, String amount, Date date, String comment, int student_id) {
+    public Payement(int id, String amount, LocalDate date, String comment, int student_id) {
         this(amount, date, comment, student_id);
         this.id = id;
     }
 
-    public Payement(String amount, Date date, String comment, int student_id) {
+    public Payement(String amount, LocalDate date, String comment, int student_id) {
         this.amount = amount;
         this.date = date;
         this.comment = comment;
@@ -40,11 +41,11 @@ public class Payement {
         this.amount = amount;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

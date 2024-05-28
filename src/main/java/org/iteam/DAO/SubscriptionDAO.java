@@ -32,7 +32,7 @@ public class SubscriptionDAO implements SubscriptionManagementService {
         Subscription subscription = null;
         if(result.next()) {
             int idSubscription = result.getInt("id");
-            String year = result.getString("name");
+            String year = result.getString("year");
             int student_id = result.getInt("student_id");
             int class_id = result.getInt("class_id");
             subscription = new Subscription(idSubscription,year,student_id,class_id);

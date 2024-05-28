@@ -7,12 +7,14 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import main.java.org.iteam.DAO.PayementDAO;
+import main.java.org.iteam.DAO.StudentDAO;
 import main.java.org.iteam.javaBeans.Payement;
+import main.java.org.iteam.javaBeans.Student;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 @WebServlet("/edit-payement")
 public class EditPayementServlet extends HttpServlet {
@@ -30,14 +32,17 @@ public class EditPayementServlet extends HttpServlet {
         }
 
         PayementDAO payementDAO = new PayementDAO();
+        StudentDAO studentDAO = new StudentDAO();
         int id = Integer.parseInt(request.getParameter("id"));
         try{
+            ArrayList<Student> students = studentDAO.getAllStudents();
             Payement payement = payementDAO.getPayementById(id);
             request.setAttribute("id", payement.getId());
             request.setAttribute("amount", payement.getAmount());
             request.setAttribute("date", payement.getDate());
             request.setAttribute("comment", payement.getComment());
             request.setAttribute("student_id", payement.getStudentId());
+            request.setAttribute("students", students);
         }catch (SQLException e) {
             e.printStackTrace();
         }
@@ -48,7 +53,7 @@ public class EditPayementServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         String amount = request.getParameter("amount");
-        Date date = new Date(request.getParameter("date"));
+        LocalDate date = LocalDate.parse(request.getParameter("date"));
         String comment = request.getParameter("comment");
         int student_id = Integer.parseInt(request.getParameter("student_id"));
 

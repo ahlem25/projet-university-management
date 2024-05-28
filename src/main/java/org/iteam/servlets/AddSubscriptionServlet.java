@@ -6,7 +6,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import main.java.org.iteam.DAO.ClasseDAO;
+import main.java.org.iteam.DAO.StudentDAO;
 import main.java.org.iteam.DAO.SubscriptionDAO;
+import main.java.org.iteam.javaBeans.Classe;
+import main.java.org.iteam.javaBeans.Student;
 import main.java.org.iteam.javaBeans.Subscription;
 
 import java.io.IOException;
@@ -28,6 +32,16 @@ public class AddSubscriptionServlet extends HttpServlet {
             this.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
         }
 
+        ClasseDAO classeDAO = new ClasseDAO();
+        StudentDAO studentDAO = new StudentDAO();
+        try {
+            ArrayList<Classe> classes = classeDAO.getAllClasses();
+            ArrayList<Student> students = studentDAO.getAllStudents();
+            request.setAttribute("classes", classes);
+            request.setAttribute("students", students);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         response.getWriter().append("Served at: ").append(request.getContextPath());
         this.getServletContext().getRequestDispatcher("/AddSubscription.jsp").forward(request, response);
     }

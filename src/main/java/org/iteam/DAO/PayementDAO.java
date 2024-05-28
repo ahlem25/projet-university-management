@@ -8,8 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class PayementDAO implements PayementManagmentService {
     private DbConfig dbInstance;
@@ -34,7 +34,7 @@ public class PayementDAO implements PayementManagmentService {
         if(result.next()) {
             int idPayement = result.getInt("id");
             String amount = result.getString("amount");
-            Date date = result.getDate("date");
+            LocalDate date = result.getDate("date").toLocalDate();
             String comment = result.getString("comment");
             int studentId = result.getInt("student_id");
             payement = new Payement(idPayement,amount,date,comment,studentId);
@@ -54,7 +54,7 @@ public class PayementDAO implements PayementManagmentService {
             Payement payement = new Payement();
             payement.setId(result.getInt("id"));
             payement.setAmount(result.getString("amount"));
-            payement.setDate(result.getDate("date"));
+            payement.setDate(result.getDate("date").toLocalDate());
             payement.setComment(result.getString("comment"));
             payement.setStudentId(result.getInt("student_id"));
             reponse.add(payement);
@@ -69,7 +69,7 @@ public class PayementDAO implements PayementManagmentService {
         connection = dbInstance.getConnection();
         PreparedStatement preStat = connection.prepareStatement(query);
         preStat.setString(1, payement.getAmount());
-        preStat.setDate(2, (java.sql.Date) payement.getDate());
+        preStat.setDate(2, java.sql.Date.valueOf(payement.getDate()));
         preStat.setString(3, payement.getComment());
         preStat.setInt(4, payement.getStudentId());
         int result = preStat.executeUpdate();
@@ -94,7 +94,7 @@ public class PayementDAO implements PayementManagmentService {
         connection = dbInstance.getConnection();
         PreparedStatement preStat = connection.prepareStatement(query);
         preStat.setString(1, payement.getAmount());
-        preStat.setDate(2, (java.sql.Date) payement.getDate());
+        preStat.setDate(2, java.sql.Date.valueOf(payement.getDate()));
         preStat.setString(3, payement.getComment());
         preStat.setInt(4, payement.getStudentId());
         preStat.setInt(5, id);

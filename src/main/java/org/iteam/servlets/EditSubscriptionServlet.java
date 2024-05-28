@@ -6,7 +6,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import main.java.org.iteam.DAO.ClasseDAO;
+import main.java.org.iteam.DAO.StudentDAO;
 import main.java.org.iteam.DAO.SubscriptionDAO;
+import main.java.org.iteam.javaBeans.Classe;
+import main.java.org.iteam.javaBeans.Student;
 import main.java.org.iteam.javaBeans.Subscription;
 
 import java.io.IOException;
@@ -30,12 +34,18 @@ public class EditSubscriptionServlet extends HttpServlet {
 
         SubscriptionDAO subscriptionDAO = new SubscriptionDAO();
         int id = Integer.parseInt(request.getParameter("id"));
+        ClasseDAO classeDAO = new ClasseDAO();
+        StudentDAO studentDAO = new StudentDAO();
         try {
+            ArrayList<Classe> classes = classeDAO.getAllClasses();
+            ArrayList<Student> students = studentDAO.getAllStudents();
             Subscription subscription = subscriptionDAO.getSubscriptionById(id);
             request.setAttribute("id", subscription.getId());
             request.setAttribute("year", subscription.getYear());
             request.setAttribute("student_id", subscription.getStudentId());
             request.setAttribute("class_id", subscription.getClassId());
+            request.setAttribute("students", students);
+            request.setAttribute("classes", classes);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -55,7 +65,7 @@ public class EditSubscriptionServlet extends HttpServlet {
             subscriptionDAO.updateSubscriptionById(id, subscription);
             ArrayList<Subscription> subscriptions = subscriptionDAO.getAllSubscriptions();
             request.setAttribute("subscriptions", subscriptions);
-            request.setAttribute("action", "add");
+            request.setAttribute("action", "edit");
         } catch (SQLException e) {
             e.printStackTrace();
         }
